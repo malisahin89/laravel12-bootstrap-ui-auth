@@ -53,7 +53,14 @@ DB_PASSWORD=sifre
 php artisan migrate
 ```
 
-### 5. Geliştirme Sunucusunu Başlat
+
+### 5. Symlink oluştur
+
+```bash
+php artisan storage:link
+```
+
+### 6. Geliştirme Sunucusunu Başlat
 
 ```bash
 php artisan serve
