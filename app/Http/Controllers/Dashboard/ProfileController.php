@@ -117,7 +117,6 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
-        // Eski resmi sil (storage yolunu alıp varsa sil)
         if ($user->profile_image && Storage::disk('public')->exists('profile_photos/' . $user->profile_image)) {
             Storage::disk('public')->delete('profile_photos/' . $user->profile_image);
         }
@@ -125,20 +124,16 @@ class ProfileController extends Controller
         $image    = $request->file('profile_photo');
         $filename = 'profile_' . uniqid() . '.webp';
 
-        // Klasörü oluştur (yoksa)
         $folder = 'profile_photos';
         if (! Storage::disk('public')->exists($folder)) {
             Storage::disk('public')->makeDirectory($folder);
         }
 
-        // Intervention Image ile webp formatına çevir
         $manager = new ImageManager(new Driver());
         $img     = $manager->read($image->getPathname());
 
-        // WebP olarak kaydet (80 kalite)
         $img->toWebp(80)->save(storage_path('app/public/' . $folder . '/' . $filename));
 
-        // Kullanıcıya yeni yolu kaydet (storage yolunu değil, public url’i kaydet)
         $user->profile_image = $filename;
         $user->save();
 
