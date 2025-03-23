@@ -29,9 +29,17 @@ class User extends Authenticatable
         'x',
         'linkedin',
         'instagram',
+        'youtube',
+        'links',
         'status',
         'password',
     ];
+
+    // "id" yerine "username" ile kullanıcıyı bulma
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -53,6 +61,8 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password'          => 'hashed',
+            'links'             => 'array',
         ];
     }
+
 }

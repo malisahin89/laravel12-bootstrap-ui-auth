@@ -40,10 +40,12 @@
                     <li>
                         <a href="#" @click="selected = (selected === 'Profile' ? '':'Profile')"
                             class="menu-item group"
-                            :class="(selected === 'Profile') || (page === 'profile') || (page === 'profile-edit') ?
+                            :class="(selected === 'Profile') || (page === 'profile') || (page === 'profile-edit') || (
+                                page === 'biolink-edit') ?
                             'menu-item-active' :
                             'menu-item-inactive'">
-                            <svg :class="(selected === 'Profile') || (page === 'profile') || (page === 'profile-edit') ?
+                            <svg :class="(selected === 'Profile') || (page === 'profile') || (page === 'profile-edit') || (
+                                page === 'biolink-edit') ?
                             'menu-item-icon-active' :
                             'menu-item-icon-inactive'"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -82,11 +84,20 @@
                                         Profile
                                     </a>
                                 </li>
+
                                 <li>
                                     <a href="{{ route('dashboard.profile.edit') }}" class="menu-dropdown-item group"
                                         :class="page === 'profile-edit' ? 'menu-dropdown-item-active' :
                                             'menu-dropdown-item-inactive'">
                                         Profile Edit
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('dashboard.profile.biolink') }}" class="menu-dropdown-item group"
+                                        :class="page === 'biolink-edit' ? 'menu-dropdown-item-active' :
+                                            'menu-dropdown-item-inactive'">
+                                        Bio Link
                                     </a>
                                 </li>
                             </ul>
@@ -110,7 +121,7 @@
                             </span>
                         </a>
                     </li>
-                    
+
                     <li>
                         <a href="{{ route('dashboard.auth.signup') }}"
                             @click="selected = (selected === 'Signup' ? '':'Signup')" class="menu-item group">

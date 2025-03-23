@@ -383,7 +383,7 @@
                 <a class="flex items-center text-gray-700 dark:text-gray-400" href="#"
                     @click.prevent="dropdownOpen = ! dropdownOpen">
                     <span class="mr-3 h-11 w-11 overflow-hidden rounded-full">
-                        <img src="{{ asset('dashboard/src/images/user/owner.jpg') }}" alt="User" />
+                        <img src="{{ !empty(Auth::user()->profile_image) ? asset('storage/profile_photos/' . Auth::user()->profile_image) : asset('dashboard/src/images/user/owner.webp') }}" alt="User" />
                     </span>
 
                     <span class="text-theme-sm mr-1 block font-medium"> {{ Auth::user()->name }} </span>

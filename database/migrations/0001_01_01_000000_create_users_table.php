@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('x')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('instagram')->nullable();
+            $table->string('youtube')->nullable();
+            $table->json('links')->nullable();
             $table->enum('status', ['active', 'inactive', 'banned'])->default('active');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

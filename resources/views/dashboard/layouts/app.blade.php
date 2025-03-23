@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>@yield('title', '@MaliSahin89-GitHub')</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}">
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+
     <link href="{{ asset('dashboard/style.css') }}" rel="stylesheet">
 </head>
 
